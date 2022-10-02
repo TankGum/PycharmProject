@@ -1,0 +1,27 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    {% if question %}
+        <form>
+            <ul style="list-style: none">
+                    {% for item in question.choice_set.all %}
+                        <li>
+                            <input
+                                type="radio"
+                                name="choice"
+                                value="{{ item.id }}"
+                            >
+                            {{ item.choice_text }}</li>
+                    {% endfor %}
+                <input
+                        style="background: #4ac1f7;
+                        border: none; outline: none;
+                        color: #ffffff;
+                        margin: 10px;
+                        padding: 8px;
+                        border-radius: 3px"
+                        type="submit" value="send"/>
+            </ul>
+        </form>
+    {% endif %}
+{% endblock %}

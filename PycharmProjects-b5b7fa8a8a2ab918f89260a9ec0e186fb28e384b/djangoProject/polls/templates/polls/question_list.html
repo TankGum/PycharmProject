@@ -1,0 +1,11 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    {% if list_question %}
+        {% for item in list_question %}
+            <p>{{ item.question_text }}</p>
+        {% endfor %}
+    {% else %}
+        <h3 style="color: firebrick">Invalid</h3>
+    {% endif %}
+{% endblock %}
